@@ -2,8 +2,9 @@
 
 ## Intro
 
-The premise of **backstay.rules** is to define a single standard approach to working with SCSS that can be implemented across various stack and projects,
-This repository contains ready to use boilerplate - structure of directories, some useful styles, stylelint config and SKILL.md file.
+The premise of **backstay.rules** is to define a single standard approach to working with SCSS that can be implemented across various stack and projects. This repository contains ready to use boilerplate - structure of directories, some useful styles, stylelint config and SKILL.md file.
+
+You can red more about this idea [here](https://kodem.dev/how-to-organize-scss-workflow-introduction-to-backstay-rules/).
 
 ## Principles
 
