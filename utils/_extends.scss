@@ -1,0 +1,14 @@
+@layer utils {
+  %g-container {
+    width: 100%;
+    padding-inline: max(var(--g-padding-inline), 50vw - var(--g-site-width) / 2);
+  }
+
+  %g-text-regular {
+    color: var(--g-color-black);
+    font-family: var(--g-font-primary);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}

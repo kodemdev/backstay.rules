@@ -1,0 +1,11 @@
+@use 'extends' as *;
+
+@layer utils {
+  .-g-container {
+    @extend %g-container;
+  }
+
+  .-g-text-regular {
+    @extend %g-text-regular;
+  }
+}

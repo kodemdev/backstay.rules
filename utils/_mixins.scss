@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:list';
+
+$breakpoints: (
+  sm: 544,
+  md: 768,
+  lg: 1024,
+  xl: 1200,
+  xxl: 1440,
+) !default;
+
+@mixin up($breakpoint, $offset: 0) {
+  @media (min-width: #{get($breakpoint) + $offset + 'px'}) {
+    @content;
+  }
+}
+
+@mixin down($breakpoint, $offset: 0) {
+  @media (max-width: #{get($breakpoint) + $offset - 1 + 'px'}) {
+    @content;
+  }
+}
+
+@mixin between($lower, $upper) {
+  @media (min-width: (get($lower) + 'px')) and (max-width: (get($upper) - 1 + 'px')) {
+    @content;
+  }
+}
+
+@mixin container($value, $mode: 'up', $name: '') {
+  $query: '';
+
+  @if meta.type-of($value) == 'list' {
+    @if list.length($value) == 2 {
+      $min: breakpoint(list.nth($value, 1));
+      $max: breakpoint(list.nth($value, 2));
+      $query: '(width >= #{$min}) and (width < #{$max})';
+    }
+  }
+
+  @if meta.type-of($value) == 'string' {
+    @if list.index(('up', 'down'), $mode) {
+      @if $mode == 'up' {
+        $query: '(width >= #{breakpoint($value)})';
+      } @else if $mode == 'down' {
+        $query: '(width < #{breakpoint($value)})';
+      }
+    }
+  }
+
+  @if meta.type-of($value) == 'number' {
+    @if list.index(('up', 'down'), $mode) {
+      @if $mode == 'up' {
+        $query: '(width >= #{$value})';
+      } @else if $mode == 'down' {
+        $query: '(width < #{$value})';
+      }
+    }
+  }
+
+  @if $query == '' {
+    @error 'Invalid container query.';
+  }
+
+  @if $name {
+    $name: '#{$name} ';
+  } @else {
+    $name: '';
+  }
+
+  @container #{$name}(#{$query}) {
+    @content;
+  }
+}
+
+@mixin prose($tag) {
+  :where(#{$tag}):not(:where([class^='block-'], [class^='block-'] *, [class^='component-'], [class^='component-'] *)) {
+    @content;
+  }
+}
+
+@function breakpoint($breakpoint) {
+  @return #{get($breakpoint) + 'px'};
+}
+
+@function get($breakpoint) {
+  @if not map.has-key($breakpoints, $breakpoint) {
+    @error 'Invalid Breakpoint: #{$breakpoint}';
+  }
+
+  @return map.get($breakpoints, $breakpoint);
+}
+
+@mixin hover() {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}

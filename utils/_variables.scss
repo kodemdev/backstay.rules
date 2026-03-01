@@ -1,0 +1,18 @@
+@layer utils {
+  :root {
+    --g-font-primary: 'Geist', sans-serif;
+    --g-site-width: 144rem;
+    --g-padding-inline: 1.6rem;
+    --g-color-white: #FFF;
+    --g-color-black: #000;
+    --g-color-primary: #F9523E;
+    --g-color-primary-a90: color-mix(in srgb, var(--g-color-primary) 100%, transparent 10%);
+    --g-color-secondary: #1B1C2E;
+    --g-easing-hover: ease;
+    --g-easing-enter: ease-out;
+    --g-easing-morph: ease-in-out;
+    --g-easing-linear: linear;
+    --g-easing-duration: 0.25s;
+    --g-easing-duration-long: 0.5s;
+  }
+}
