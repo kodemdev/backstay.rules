@@ -1,4 +1,8 @@
 @layer utils {
+  /**
+   * Important: Using vw may return a slightly smaller container width depending on the user's scrollbar settings.
+   * To avoid this, I'm recommending a fallback in js to calculate 1vw which you assign to a CSS variable or simply using 50% instead of 50vw.
+   */
   %g-container {
     width: 100%;
     padding-inline: max(var(--g-padding-inline), 50vw - var(--g-site-width) / 2);
