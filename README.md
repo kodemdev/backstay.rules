@@ -1,5 +1,7 @@
 # backstay.rules
 
+<img src="https://kodem.dev/wp-content/uploads/2026/03/backstay-rules-logo.svg" alt="backstay.rules logotype" width="418" height="279">
+
 ## Intro
 
 The premise of **backstay.rules** is to define a single standard approach to working with SCSS that can be implemented across various stack and projects. This repository contains ready to use boilerplate - structure of directories, some useful styles, stylelint config and SKILL.md file.
