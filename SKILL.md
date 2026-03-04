@@ -30,34 +30,11 @@ Use this skill when the user asks to:
 
 Follow these files first:
 
-- `README.md` for architecture and naming principles.
 - `styles.scss` for `@use` import order.
 - `base/_layers.scss` for the layer order.
 - `stylelint.config.js` for formatting and property order.
 
 If those files and user request conflict, ask the user before changing conventions.
-
-## Required Structure
-
-Required files/folders:
-
-- `styles.scss`
-- `base/_layers.scss`
-- `base/_normalize.scss`
-- `base/_base.scss`
-- `base/_typogaphy.scss`
-- `utils/_variables.scss`
-- `utils/_mixins.scss`
-
-Optional files/folders:
-
-- `vendors/`
-- `views/`
-- `partials/`
-- `components/`
-- `utils/_extends.scss`
-- `utils/_modifiers.scss`
-- `utils/_keyframes.scss`
 
 ## Layer Rules (Mandatory)
 
@@ -75,15 +52,12 @@ All style definitions must be wrapped in the correct `@layer` block:
 - component styles -> `@layer components`
 - last-resort overrides -> `@layer overrides` (avoid unless necessary)
 
-Do not place component styles in defaults/utils layers.
-
 ## Import Rules
 
 In `styles.scss`:
 
 - use `@use`, not legacy `@import` (except vendor CSS files that require import with `layer(...)`),
 - keep imports ordered from global/base toward specific styles,
-- keep layer declaration available through `@use 'base/layers';`.
 
 Current canonical import flow:
 
